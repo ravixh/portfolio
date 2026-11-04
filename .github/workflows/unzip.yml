@@ -1,0 +1,31 @@
+name: Extract portfolio files
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  unzip:
+    if: "!contains(github.event.head_commit.message, '[skip ci]')"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Unzip portfolio files into repo root
+        run: |
+          if [ -f portfolio-site.zip ]; then
+            unzip -o portfolio-site.zip -d .
+            rm portfolio-site.zip
+          else
+            echo "portfolio-site.zip not found; nothing to do."
+          fi
+      - name: Commit extracted files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --cached --quiet && echo "Nothing to commit" || git commit -m "Extract portfolio site files [skip ci]"
+          git push
