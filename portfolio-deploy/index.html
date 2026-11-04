@@ -1,0 +1,663 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="description" content="Ravir Scott — independent music artist from Sonma, Begusarai, Bihar. Emotional hip-hop, cinematic sound and the bansuri flute. Home of the album SANGAM, Flutes of Sanātana and the film Lone Yet Loyal." />
+    <link rel="icon" href="data:," />
+    <title>Ravir Scott — Music Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Boldonse&family=Work+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;700&family=Instrument+Serif:ital@0;1&family=Noto+Serif+Devanagari:wght@400;600&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --bg: #f4f4ff;
+        --bg-soft: #e9e9ff;
+        --card: #fbfbff;
+        --ink: #0c0c22;
+        --muted: #4b4b6e;
+        --accent: #1414f0;
+        --accent-deep: #0a0a8c;
+        --line: #d3d3f4;
+        --chip: #e6e6ff;
+        --hero-ink: #f2f2ff;
+        color-scheme: light;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg: #06061a;
+          --bg-soft: #0a0a26;
+          --card: #0d0d2a;
+          --ink: #eeeefc;
+          --muted: #a6a6cf;
+          --accent: #8f8fff;
+          --accent-deep: #c2c2ff;
+          --line: #26265a;
+          --chip: #171742;
+          color-scheme: dark;
+        }
+      }
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font-family: "Work Sans", system-ui, sans-serif;
+        font-weight: 400;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+      }
+      img { max-width: 100%; display: block; }
+      a { color: var(--accent); }
+      ::selection { background: var(--accent); color: #fff; }
+
+      .wrap { width: min(1180px, 100% - 2.5rem); margin-inline: auto; }
+
+      /* ---------- nav ---------- */
+      .nav {
+        position: sticky; top: 0; z-index: 50;
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        background: color-mix(in srgb, var(--bg) 82%, transparent);
+        border-bottom: 1px solid var(--line);
+      }
+      .nav-in {
+        display: flex; align-items: center; gap: 1.4rem;
+        padding: .65rem 0;
+        overflow-x: auto; scrollbar-width: none;
+      }
+      .nav-in::-webkit-scrollbar { display: none; }
+      .nav a {
+        color: var(--ink); text-decoration: none; white-space: nowrap;
+        font-family: "JetBrains Mono", monospace; font-size: .78rem; letter-spacing: .04em;
+        padding: .3rem 0; border-bottom: 2px solid transparent;
+      }
+      .nav a:hover { color: var(--accent); }
+      .nav a.nav-cta {
+        margin-left: auto; color: #fff; background: var(--accent);
+        padding: .45rem 1rem; border-radius: 999px; border-bottom: none;
+        font-weight: 700;
+      }
+      .nav a.nav-cta:hover { background: var(--accent-deep); color: #fff; }
+      @media (prefers-color-scheme: dark) { .nav a.nav-cta { color: #0a0a26; } .nav a.nav-cta:hover { color: #0a0a26; } }
+
+      /* ---------- hero ---------- */
+      .hero {
+        position: relative; color: var(--hero-ink);
+        min-height: min(92svh, 860px);
+        display: flex; align-items: flex-end;
+        overflow: hidden; background: #0a0a2e;
+      }
+      .hero-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+      .hero-shade {
+        position: absolute; inset: 0;
+        background: linear-gradient(180deg, rgba(5,5,32,.42) 0%, rgba(5,5,32,.05) 38%, rgba(5,5,32,.66) 78%, rgba(4,4,26,.92) 100%);
+      }
+      .hero-in { position: relative; padding: 6.5rem 0 3.2rem; }
+      .hero-meta {
+        display: flex; flex-wrap: wrap; gap: .55rem; margin-bottom: 1.4rem;
+        font-family: "JetBrains Mono", monospace; font-size: .74rem; letter-spacing: .06em;
+      }
+      .hero-meta span {
+        border: 1px solid rgba(230,230,255,.45); border-radius: 999px;
+        padding: .32rem .8rem; background: rgba(8,8,40,.35);
+      }
+      h1.artist {
+        font-family: "Boldonse", sans-serif; font-weight: 400;
+        font-size: clamp(2.7rem, 10.5vw, 7.6rem);
+        line-height: 1.02; margin: 0; letter-spacing: .01em;
+        text-wrap: balance;
+      }
+      .hero-hindi {
+        font-family: "Noto Serif Devanagari", serif; font-weight: 600;
+        font-size: clamp(1.3rem, 3.4vw, 2.1rem); margin: .9rem 0 0; color: #c9c9ff;
+      }
+      .hero-tag {
+        font-family: "Instrument Serif", serif; font-style: italic;
+        font-size: clamp(1.15rem, 2.6vw, 1.55rem);
+        max-width: 38rem; margin: 1rem 0 0; color: #e9e9ff;
+      }
+      .hero-actions { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 1.8rem; }
+      .btn {
+        display: inline-flex; align-items: center; gap: .55rem;
+        text-decoration: none; font-weight: 600; font-size: .95rem;
+        padding: .8rem 1.5rem; border-radius: 999px;
+        transition: transform .15s ease, background .15s ease;
+      }
+      .btn:active { transform: scale(.97); }
+      .btn-solid { background: #2b2bff; color: #fff; }
+      .btn-solid:hover { background: #4848ff; }
+      .btn-ghost { border: 1px solid rgba(230,230,255,.6); color: var(--hero-ink); background: rgba(8,8,40,.3); }
+      .btn-ghost:hover { border-color: #fff; }
+      .btn svg { flex: none; }
+
+      /* ---------- marquee ---------- */
+      .marquee {
+        border-block: 1px solid var(--line);
+        background: var(--bg-soft);
+        overflow: hidden; padding: .7rem 0;
+      }
+      .marquee-track {
+        display: flex; gap: 2.6rem; width: max-content;
+        font-family: "JetBrains Mono", monospace; font-size: .8rem; letter-spacing: .08em;
+        color: var(--muted); white-space: nowrap;
+        animation: slide 46s linear infinite;
+      }
+      .marquee-track b { color: var(--accent); font-weight: 500; }
+      @keyframes slide { to { transform: translateX(-50%); } }
+      @media (prefers-reduced-motion: reduce) {
+        .marquee-track { animation: none; }
+        html { scroll-behavior: auto; }
+      }
+
+      /* ---------- sections ---------- */
+      section { padding: 4.6rem 0 0; }
+      .sec-head { display: flex; align-items: baseline; gap: 1rem; margin-bottom: 2rem; }
+      .sec-num {
+        font-family: "JetBrains Mono", monospace; font-size: .8rem; font-weight: 700;
+        color: var(--accent); border: 1px solid var(--line); border-radius: 999px;
+        padding: .2rem .65rem; background: var(--card);
+      }
+      h2 {
+        font-family: "Boldonse", sans-serif; font-weight: 400;
+        font-size: clamp(1.6rem, 4.6vw, 2.7rem); line-height: 1.15; margin: 0;
+      }
+      .sec-sub { color: var(--muted); max-width: 44rem; margin: .8rem 0 0; font-size: 1.02rem; }
+      p { margin: 0 0 1rem; }
+      .serif-i { font-family: "Instrument Serif", serif; font-style: italic; }
+
+      /* featured release */
+      .feature {
+        display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+        gap: 2.6rem; align-items: center;
+      }
+      .cover {
+        border-radius: 18px; overflow: hidden;
+        border: 1px solid var(--line);
+        box-shadow: 0 24px 60px -24px rgba(10,10,80,.45);
+      }
+      .cover img { width: 100%; aspect-ratio: 1; object-fit: cover; }
+      .rel-kicker {
+        font-family: "JetBrains Mono", monospace; font-size: .76rem; letter-spacing: .1em;
+        color: var(--accent); font-weight: 700; margin-bottom: .8rem;
+      }
+      h3.rel-title {
+        font-family: "Boldonse", sans-serif; font-weight: 400;
+        font-size: clamp(2rem, 5.5vw, 3.4rem); margin: 0 0 .4rem; line-height: 1.08;
+      }
+      .rel-meta { font-family: "JetBrains Mono", monospace; font-size: .82rem; color: var(--muted); margin-bottom: 1.2rem; }
+      blockquote.pull {
+        margin: 1.4rem 0; padding: 0 0 0 1.2rem;
+        border-left: 3px solid var(--accent);
+        font-family: "Instrument Serif", serif; font-style: italic;
+        font-size: 1.28rem; line-height: 1.45;
+      }
+      blockquote.pull cite { display: block; font-size: .95rem; margin-top: .5rem; color: var(--muted); font-style: normal; font-family: "Work Sans", sans-serif; }
+      .mini-tracks { list-style: none; margin: 1.2rem 0 1.6rem; padding: 0; }
+      .mini-tracks li {
+        display: flex; gap: .9rem; align-items: baseline;
+        padding: .55rem 0; border-bottom: 1px dashed var(--line);
+        font-size: 1.02rem;
+      }
+      .mini-tracks .n { font-family: "JetBrains Mono", monospace; font-size: .78rem; color: var(--accent); font-weight: 700; }
+      .btn-row { display: flex; flex-wrap: wrap; gap: .7rem; }
+      .btn-ink { background: var(--ink); color: var(--bg); }
+      .btn-ink:hover { background: var(--accent); color: #fff; }
+      .btn-line { border: 1px solid var(--line); color: var(--ink); background: var(--card); }
+      .btn-line:hover { border-color: var(--accent); color: var(--accent); }
+
+      /* tracklist */
+      .tracks { border-top: 1px solid var(--line); }
+      .track {
+        display: grid; grid-template-columns: 3rem 1fr auto; gap: 1rem; align-items: center;
+        padding: 1.05rem .6rem; border-bottom: 1px solid var(--line);
+        text-decoration: none; color: var(--ink);
+        transition: background .15s ease, padding-left .15s ease;
+      }
+      .track:hover { background: var(--card); padding-left: 1rem; }
+      .track .num { font-family: "JetBrains Mono", monospace; font-size: .85rem; color: var(--muted); font-weight: 700; }
+      .track:hover .num { color: var(--accent); }
+      .track .t { font-weight: 600; font-size: 1.08rem; line-height: 1.3; }
+      .track .proj { color: var(--muted); font-size: .9rem; }
+      .track .plat {
+        display: inline-flex; align-items: center; gap: .45rem;
+        font-family: "JetBrains Mono", monospace; font-size: .76rem; letter-spacing: .03em;
+        border: 1px solid var(--line); border-radius: 999px; padding: .38rem .8rem;
+        background: var(--card); white-space: nowrap;
+      }
+      .track:hover .plat { border-color: var(--accent); color: var(--accent); }
+
+      /* split (flutes / film) */
+      .split { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: 2.6rem; align-items: center; }
+      .split.flip { grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); }
+      .split .cover img { aspect-ratio: 1; }
+      .split .poster img { aspect-ratio: 2/3; }
+      .poster { border-radius: 18px; overflow: hidden; border: 1px solid var(--line); box-shadow: 0 24px 60px -24px rgba(10,10,80,.45); max-width: 380px; }
+      .fact-list { list-style: none; margin: 1.3rem 0; padding: 0; display: grid; gap: .55rem; }
+      .fact-list li { display: flex; gap: .8rem; font-size: .98rem; }
+      .fact-list .k {
+        font-family: "JetBrains Mono", monospace; font-size: .74rem; font-weight: 700;
+        color: var(--accent); min-width: 6.4rem; padding-top: .22rem; letter-spacing: .04em;
+      }
+
+      /* about */
+      .about-grid { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 4fr); gap: 2.6rem; }
+      .about-grid p { font-size: 1.06rem; }
+      .stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; align-self: start; }
+      .stat { background: var(--card); padding: 1.2rem 1.1rem; }
+      .stat .v { font-family: "Boldonse", sans-serif; font-size: 1.7rem; line-height: 1; color: var(--accent); }
+      .stat .l { font-size: .86rem; color: var(--muted); margin-top: .45rem; }
+
+      /* books */
+      .books { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1.3rem; }
+      .book { display: flex; flex-direction: column; }
+      .book .cov { border-radius: 10px; overflow: hidden; border: 1px solid var(--line); }
+      .book .cov img { aspect-ratio: 2/3; object-fit: cover; width: 100%; transition: transform .3s ease; }
+      .book:hover .cov img { transform: scale(1.035); }
+      .book h4 { margin: .85rem 0 .3rem; font-size: .99rem; line-height: 1.35; font-weight: 600; }
+      .book p { font-size: .86rem; color: var(--muted); margin: 0 0 .6rem; flex: 1; }
+      .book .asin { font-family: "JetBrains Mono", monospace; font-size: .7rem; color: var(--muted); }
+      .book a.buy {
+        font-family: "JetBrains Mono", monospace; font-size: .76rem; font-weight: 700;
+        text-decoration: none; margin-top: .35rem; display: inline-flex; gap: .35rem; align-items: center;
+      }
+      .book a.buy:hover { text-decoration: underline; }
+
+      /* projects strip */
+      .projects { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.3rem; }
+      .proj-card { border: 1px solid var(--line); border-radius: 14px; padding: 1.3rem; background: var(--card); }
+      .proj-card .pn { font-family: "JetBrains Mono", monospace; font-size: .76rem; color: var(--accent); font-weight: 700; }
+      .proj-card h4 { margin: .5rem 0 .4rem; font-size: 1.05rem; font-weight: 600; }
+      .proj-card p { font-size: .9rem; color: var(--muted); margin: 0; }
+      .proj-card img { border-radius: 9px; margin-bottom: 1rem; aspect-ratio: 16/10; object-fit: cover; width: 100%; }
+
+      /* listen grid */
+      .listen { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+      .plat-card {
+        display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+        border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.3rem;
+        background: var(--card); text-decoration: none; color: var(--ink);
+        transition: border-color .15s ease, transform .15s ease;
+      }
+      .plat-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+      .plat-card .nm { font-weight: 600; font-size: 1.05rem; }
+      .plat-card .ds { font-size: .85rem; color: var(--muted); }
+      .plat-card svg { color: var(--accent); flex: none; }
+
+      /* press */
+      .press { display: grid; gap: 0; border-top: 1px solid var(--line); }
+      .press a {
+        display: grid; grid-template-columns: auto 1fr auto; gap: 1.1rem; align-items: baseline;
+        padding: 1.05rem .6rem; border-bottom: 1px solid var(--line);
+        text-decoration: none; color: var(--ink);
+      }
+      .press a:hover { background: var(--card); }
+      .press .src { font-family: "JetBrains Mono", monospace; font-size: .74rem; font-weight: 700; color: var(--accent); letter-spacing: .05em; white-space: nowrap; }
+      .press .hl { font-weight: 500; }
+      .press .dt { font-family: "JetBrains Mono", monospace; font-size: .76rem; color: var(--muted); white-space: nowrap; }
+
+      /* contact / footer */
+      footer { margin-top: 5rem; background: var(--accent-deep); color: #e9e9ff; }
+      @media (prefers-color-scheme: dark) { footer { background: #0a0a30; border-top: 1px solid var(--line); } }
+      .foot-in { padding: 3.4rem 0 2.4rem; }
+      .foot-big {
+        font-family: "Boldonse", sans-serif; font-size: clamp(1.7rem, 5.5vw, 3.2rem);
+        line-height: 1.15; margin: 0 0 1rem;
+      }
+      .foot-mail {
+        font-family: "Instrument Serif", serif; font-style: italic;
+        font-size: clamp(1.3rem, 3.6vw, 2rem); color: #fff;
+        text-decoration: none; border-bottom: 2px solid rgba(255,255,255,.4);
+      }
+      .foot-mail:hover { border-color: #fff; }
+      .foot-grid { display: flex; flex-wrap: wrap; gap: 2.4rem; margin-top: 2.4rem; }
+      .foot-grid h5 {
+        font-family: "JetBrains Mono", monospace; font-size: .72rem; letter-spacing: .1em;
+        color: #b9b9ff; margin: 0 0 .7rem; font-weight: 700;
+      }
+      .foot-grid a { color: #e9e9ff; text-decoration: none; display: block; padding: .18rem 0; font-size: .95rem; }
+      .foot-grid a:hover { text-decoration: underline; }
+      .foot-grid p { margin: 0; font-size: .95rem; color: #c9c9f5; }
+      .foot-base {
+        border-top: 1px solid rgba(230,230,255,.25); margin-top: 2.4rem; padding-top: 1.3rem;
+        display: flex; flex-wrap: wrap; gap: .6rem 1.6rem; justify-content: space-between;
+        font-family: "JetBrains Mono", monospace; font-size: .74rem; color: #b9b9ff;
+      }
+
+      /* responsive */
+      @media (max-width: 900px) {
+        .feature, .split, .split.flip, .about-grid { grid-template-columns: 1fr; }
+        .feature .cover { max-width: 440px; }
+        .books { grid-template-columns: repeat(3, 1fr); }
+        .projects { grid-template-columns: repeat(2, 1fr); }
+        .listen { grid-template-columns: repeat(2, 1fr); }
+        .poster { max-width: 300px; }
+      }
+      @media (max-width: 560px) {
+        .nav-in { flex-wrap: wrap; overflow-x: visible; gap: .35rem .95rem; padding: .55rem 0; }
+        .nav a { font-size: .72rem; }
+        .nav a.nav-cta { margin-left: auto; padding: .38rem .85rem; }
+        section { padding-top: 3.4rem; }
+        .books { grid-template-columns: repeat(2, 1fr); }
+        .projects, .listen { grid-template-columns: 1fr; }
+        .track { grid-template-columns: 2.2rem 1fr; }
+        .track .plat { grid-column: 2; justify-self: start; margin-top: .2rem; }
+        .press a { grid-template-columns: 1fr auto; }
+        .press .hl { grid-column: 1 / -1; order: 3; }
+        .hero-in { padding-top: 4.5rem; }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="nav" aria-label="Sections">
+      <div class="wrap nav-in">
+        <a href="#sangam">SANGAM</a>
+        <a href="#songs">Songs</a>
+        <a href="#flutes">Flutes</a>
+        <a href="#about">About</a>
+        <a href="#film">Film</a>
+        <a href="#books">Books</a>
+        <a href="#press">Press</a>
+        <a class="nav-cta" href="#listen">Listen now</a>
+      </div>
+    </nav>
+
+    <header class="hero">
+      <img class="hero-img" src="assets/hero.webp" alt="Painted artwork of a lone flautist standing where two rivers meet at dusk" />
+      <div class="hero-shade"></div>
+      <div class="wrap hero-in">
+        <div class="hero-meta">
+          <span>INDEPENDENT ARTIST</span>
+          <span>SONMA · BEGUSARAI · BIHAR</span>
+          <span>LABEL — RAVIR'S WIRE</span>
+        </div>
+        <h1 class="artist">RAVIR<br />SCOTT</h1>
+        <p class="hero-hindi">रविश कश्यप</p>
+        <p class="hero-tag">Emotional hip-hop and cinematic storytelling, carried on the breath of the bansuri flute — written, composed and produced independently.</p>
+        <div class="hero-actions">
+          <a class="btn btn-solid" href="https://open.spotify.com/artist/1u7rvL1GtodxI2NqgGHV4n" target="_blank" rel="noopener">
+            <svg width="15" height="15" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M3 1.8v12.4c0 .8.9 1.3 1.6.9l9.6-6.2c.6-.4.6-1.4 0-1.8L4.6.9C3.9.5 3 1 3 1.8z"/></svg>
+            Listen on Spotify
+          </a>
+          <a class="btn btn-ghost" href="#sangam">The album — SANGAM</a>
+        </div>
+      </div>
+    </header>
+
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track" id="marquee"></div>
+    </div>
+
+    <main class="wrap">
+      <!-- SANGAM -->
+      <section id="sangam">
+        <div class="sec-head"><span class="sec-num">01</span><h2>Latest album</h2></div>
+        <div class="feature">
+          <div class="cover"><img src="assets/sangam.webp" alt="Artwork for SANGAM — two rivers of blue and gold light merging into one stream" /></div>
+          <div>
+            <p class="rel-kicker">ALBUM · 2026 · RAVIR'S WIRE</p>
+            <h3 class="rel-title">SANGAM</h3>
+            <p class="rel-meta">Emotional hip-hop · Cinematic · Lyrical storytelling</p>
+            <p><em>Sangam</em> means a confluence — a union. The album brings together Ravir Scott's experiences, struggles and creative vision into one cohesive musical narrative: a cinematic emotional journey through silence, waiting and inner conflict, blending emotional rap with ambient sound and storytelling. Every track is written, composed and produced by Ravir himself.</p>
+            <blockquote class="pull">
+              “SANGAM is not just an album — it is a reflection of who I am and what I've survived. It connects my past, my pain, and my purpose into one sound.”
+              <cite>— Ravir Scott, on the album's release</cite>
+            </blockquote>
+            <ul class="mini-tracks">
+              <li><span class="n">04</span> Khamoshi</li>
+              <li><span class="n">05</span> Intezzar Tera</li>
+              <li><span class="n">06</span> Intezaar Tera</li>
+            </ul>
+            <p style="color:var(--muted); font-size:.95rem;">SANGAM is also growing beyond the album — it has been developed into a TV series listed on IMDb, with more songs still to come.</p>
+            <div class="btn-row">
+              <a class="btn btn-ink" href="https://www.jiosaavn.com/artist/ravir-scott/ck6zgbq8FYY_" target="_blank" rel="noopener">Stream on JioSaavn</a>
+              <a class="btn btn-line" href="https://band.link/ravirscott" target="_blank" rel="noopener">All streaming links</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ALL SONGS -->
+      <section id="songs">
+        <div class="sec-head"><span class="sec-num">02</span><h2>All songs</h2></div>
+        <p class="sec-sub" style="margin-bottom:1.6rem;">The full catalogue as listed on <a href="https://ravish.cyou" target="_blank" rel="noopener">ravish.cyou</a> — every row opens the artist page on that platform.</p>
+        <div class="tracks" id="tracklist"></div>
+      </section>
+
+      <!-- FLUTES -->
+      <section id="flutes">
+        <div class="sec-head"><span class="sec-num">03</span><h2>The flute work</h2></div>
+        <div class="split">
+          <div>
+            <h3 class="rel-title" style="font-size:clamp(1.7rem,4.5vw,2.6rem);">Flutes of Sanātana</h3>
+            <p class="rel-meta">Bansuri · Devotional · Instrumental</p>
+            <p>Alongside the rap records, Ravir's recent work turns to the bamboo flute. <em>Flutes of Sanātana</em> is a bansuri-led release rooted in the timeless — <span class="serif-i">sanātana</span>, “the eternal” — where the breath of the flute carries the melody instead of words.</p>
+            <p>It's the other half of the SANGAM idea: hip-hop tells the story out loud; the flute says what the story feels like.</p>
+            <div class="btn-row">
+              <a class="btn btn-ink" href="https://www.jiosaavn.com/artist/ravir-scott/ck6zgbq8FYY_" target="_blank" rel="noopener">Listen on JioSaavn</a>
+              <a class="btn btn-line" href="#listen">More platforms</a>
+            </div>
+          </div>
+          <div class="cover"><img src="assets/flutes.webp" alt="Artwork for Flutes of Sanātana — bamboo bansuri flutes with marigolds and a brass lamp" /></div>
+        </div>
+      </section>
+
+      <!-- ABOUT -->
+      <section id="about">
+        <div class="sec-head"><span class="sec-num">04</span><h2>About</h2></div>
+        <div class="about-grid">
+          <div>
+            <p>Ravir Scott (born Ravish Kumar) is an Indian independent music artist, author and developer from Sonma, Begusarai, Bihar. With no financial backing or production house behind him, he taught himself music composition, filmmaking and technology — and built a fully independent career on determination and practice.</p>
+            <p>His sound blends emotional rap and hip-hop with cinematic production and, increasingly, the bansuri flute. His releases are distributed worldwide through RouteNote and SpaceMedia under his own label, <strong>Ravir's Wire</strong>, and indexed across MusicBrainz, Spotify, Apple Music, Amazon Music and IMDb.</p>
+            <p>Beyond music, he writes books, builds AI products, and runs a simple creed: <span class="serif-i">one person, with focus and dedication, can produce professional work without a big studio.</span></p>
+            <ul class="fact-list">
+              <li><span class="k">NAME</span> Ravir Scott · Ravish Kumar · रविश कश्यप</li>
+              <li><span class="k">FROM</span> Sonma, Begusarai, Bihar, India</li>
+              <li><span class="k">LABEL</span> Ravir's Wire (independent)</li>
+              <li><span class="k">ALSO</span> Author · Developer · Filmmaker</li>
+            </ul>
+          </div>
+          <div class="stats">
+            <div class="stat"><div class="v">10</div><div class="l">Songs in the catalogue</div></div>
+            <div class="stat"><div class="v">7+</div><div class="l">Streaming platforms worldwide</div></div>
+            <div class="stat"><div class="v">5</div><div class="l">Books published</div></div>
+            <div class="stat"><div class="v">1</div><div class="l">Film — written, directed &amp; performed solo</div></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FILM -->
+      <section id="film">
+        <div class="sec-head"><span class="sec-num">05</span><h2>On screen</h2></div>
+        <div class="split flip">
+          <div class="poster"><img src="assets/lone.webp" alt="Poster-style artwork for Lone Yet Loyal — a young man walking a village road at sunrise" /></div>
+          <div>
+            <p class="rel-kicker">FILM · 2025</p>
+            <h3 class="rel-title" style="font-size:clamp(1.8rem,4.8vw,2.8rem);">Lone Yet Loyal</h3>
+            <p>Ravir's debut film is a genuinely solo production: he wrote, directed, acted in, edited, composed the music for and promoted the project himself — earning an official IMDb credit and recognition as a self-made filmmaker.</p>
+            <p>The title track, <em>Lone Yet Loyal</em>, carries the same themes as the film — solitude, loyalty and staying true — and is part of the song catalogue above.</p>
+            <ul class="fact-list">
+              <li><span class="k">ROLES</span> Director · Writer · Actor · Composer · Editor</li>
+              <li><span class="k">LISTED</span> IMDb</li>
+              <li><span class="k">MADE IN</span> Sonma, Begusarai — independently</li>
+            </ul>
+            <div class="btn-row">
+              <a class="btn btn-ink" href="https://music.apple.com/in/artist/ravir-scott/1826115974" target="_blank" rel="noopener">Hear the title track</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- BOOKS -->
+      <section id="books">
+        <div class="sec-head"><span class="sec-num">06</span><h2>Books</h2></div>
+        <p class="sec-sub" style="margin-bottom:1.8rem;">Five titles — two autobiographies, two on technology, and a Hindi analysis of Machiavelli. Covers and details from ravish.cyou.</p>
+        <div class="books" id="bookgrid"></div>
+      </section>
+
+      <!-- PROJECTS -->
+      <section id="projects">
+        <div class="sec-head"><span class="sec-num">07</span><h2>Also building</h2></div>
+        <div class="projects">
+          <div class="proj-card">
+            <img src="assets/project-songs.jpg" alt="Ravir Songs — cinematic music player artwork" />
+            <span class="pn">01</span>
+            <h4>Ravir Songs</h4>
+            <p>A cinematic music player and favourites collection built around Sonma Pranpur artwork.</p>
+          </div>
+          <div class="proj-card">
+            <span class="pn">02</span>
+            <h4>Ravir Rank AI</h4>
+            <p>A SaaS platform for digital identity management, entity SEO and Google Knowledge Panel assistance.</p>
+          </div>
+          <div class="proj-card">
+            <span class="pn">03</span>
+            <h4>Ravir Press</h4>
+            <p>A premium tech news publication on AI, cybersecurity and the digital economy, with a writer dashboard.</p>
+          </div>
+          <div class="proj-card">
+            <span class="pn">04</span>
+            <h4>ANONCHAT</h4>
+            <p>Anonymous real-time chat with encrypted rooms — no identity, no trace.</p>
+          </div>
+        </div>
+        <p style="margin-top:1.2rem; color:var(--muted); font-size:.95rem;">Full project details on <a href="https://ravish.cyou/projects" target="_blank" rel="noopener">ravish.cyou/projects</a>.</p>
+      </section>
+
+      <!-- LISTEN -->
+      <section id="listen">
+        <div class="sec-head"><span class="sec-num">08</span><h2>Listen everywhere</h2></div>
+        <div class="listen" id="listengrid"></div>
+      </section>
+
+      <!-- PRESS -->
+      <section id="press">
+        <div class="sec-head"><span class="sec-num">09</span><h2>Press</h2></div>
+        <div class="press">
+          <a href="https://www.prurgent.com/2026-01-14/pressrelease473530.htm" target="_blank" rel="noopener">
+            <span class="src">PR URGENT</span>
+            <span class="hl">Ravir Scott Announces the Release of His New Album “SANGAM”</span>
+            <span class="dt">JAN 2026</span>
+          </a>
+          <a href="http://prsync.com/ravirs-wire/ravir-scotts-sangam-goes-live-worldwide-as-a-multi-platform-experience-5178911/" target="_blank" rel="noopener">
+            <span class="src">PR SYNC</span>
+            <span class="hl">Ravir Scott's “SANGAM” Goes Live Worldwide as a Multi-Platform Experience</span>
+            <span class="dt">2026</span>
+          </a>
+          <a href="https://www.issuewire.com/independent-music-creator-ravir-scott-ravish-kumar-emerges-as-a-rising-talent-from-bihar-1841697081133513" target="_blank" rel="noopener">
+            <span class="src">ISSUEWIRE</span>
+            <span class="hl">Independent Music Creator Ravir Scott (Ravish Kumar) Emerges as a Rising Talent from Bihar</span>
+            <span class="dt">JAN 2026</span>
+          </a>
+          <a href="https://grokipedia.com/page/Ravir_Scott" target="_blank" rel="noopener">
+            <span class="src">GROKIPEDIA</span>
+            <span class="hl">Ravir Scott — artist biography and filmography</span>
+            <span class="dt">PROFILE</span>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer id="contact">
+      <div class="wrap foot-in">
+        <p class="foot-big">Bookings, features<br />&amp; collaborations</p>
+        <a class="foot-mail" href="mailto:hi@ravish.cyou">hi@ravish.cyou</a>
+        <div class="foot-grid">
+          <div>
+            <h5>FOLLOW</h5>
+            <a href="https://instagram.com/_ravissh" target="_blank" rel="noopener">Instagram — @_ravissh</a>
+            <a href="https://www.youtube.com/@ravirscott" target="_blank" rel="noopener">YouTube — @ravirscott</a>
+            <a href="https://x.com/ravirscott" target="_blank" rel="noopener">X — @ravirscott</a>
+          </div>
+          <div>
+            <h5>MUSIC</h5>
+            <a href="https://band.link/ravirscott" target="_blank" rel="noopener">Bandlink — all links</a>
+            <a href="https://linktr.ee/ravirscott" target="_blank" rel="noopener">Linktree</a>
+            <a href="https://musicbrainz.org/artist/2849a682-24f4-4581-8c5f-d788cf19c05b" target="_blank" rel="noopener">MusicBrainz</a>
+          </div>
+          <div>
+            <h5>LABEL &amp; HOME</h5>
+            <a href="https://musicbrainz.org/label/848e3225-12d0-492f-a711-1fc314dec061" target="_blank" rel="noopener">Ravir's Wire</a>
+            <p>Sonma, Begusarai,<br />Bihar, India</p>
+          </div>
+          <div>
+            <h5>MAIN SITE</h5>
+            <a href="https://ravish.cyou" target="_blank" rel="noopener">ravish.cyou</a>
+            <a href="https://share.google/CXqbHGi3aX0cKJWDh" target="_blank" rel="noopener">Google Knowledge Panel</a>
+          </div>
+        </div>
+        <div class="foot-base">
+          <span>RAVIR SCOTT · RAVIR'S WIRE</span>
+          <span>SONGS DISTRIBUTED VIA ROUTENOTE &amp; SPACEMEDIA</span>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      var SPOTIFY = "https://open.spotify.com/artist/1u7rvL1GtodxI2NqgGHV4n";
+      var JIO = "https://www.jiosaavn.com/artist/ravir-scott/ck6zgbq8FYY_";
+      var APPLE = "https://music.apple.com/in/artist/ravir-scott/1826115974";
+      var AMAZON = "https://music.amazon.in/artists/B0FHHMYV6D/ravir-scott";
+
+      var arrow = '<svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 12L12 4M6 4h6v6"/></svg>';
+
+      var tracks = [
+        { n: "01", t: "Ravir Crave", p: "Ravir Crave", plat: "Spotify", url: SPOTIFY },
+        { n: "02", t: "cxxot", p: "cxxot", plat: "Spotify", url: SPOTIFY },
+        { n: "03", t: "Void Testament", p: "Void Testament", plat: "Spotify", url: SPOTIFY },
+        { n: "04", t: "Khamoshi", p: "SANGAM", plat: "JioSaavn", url: JIO },
+        { n: "05", t: "Intezzar Tera", p: "SANGAM", plat: "JioSaavn", url: JIO },
+        { n: "06", t: "Intezaar Tera", p: "SANGAM", plat: "JioSaavn", url: JIO },
+        { n: "07", t: "Khat Khat", p: "Khat Khat", plat: "JioSaavn", url: JIO },
+        { n: "08", t: "Flutes of Sanātana", p: "Flutes of Sanātana", plat: "JioSaavn", url: JIO },
+        { n: "09", t: "Lone Yet Loyal", p: "Lone Yet Loyal", plat: "Apple Music", url: APPLE },
+        { n: "10", t: "ਸੁੰਦਰਤਾ ਦੀ ਸੁਰੀਂਘ", p: "Single", plat: "Amazon Music", url: AMAZON }
+      ];
+
+      document.getElementById("tracklist").innerHTML = tracks.map(function (x) {
+        return '<a class="track" href="' + x.url + '" target="_blank" rel="noopener">' +
+          '<span class="num">' + x.n + '</span>' +
+          '<span><span class="t">' + x.t + '</span><br /><span class="proj">' + x.p + '</span></span>' +
+          '<span class="plat">' + x.plat + ' ' + arrow + '</span></a>';
+      }).join("");
+
+      var books = [
+        { img: "assets/book-kashyap.jpg", alt: "Cover of Ravish Kashyap — Autobiography", t: "Ravish Kashyap — Autobiography", d: "The journey behind the village desk, told in the author's own voice. Kindle eBook, live on Amazon.", id: "ASIN B0HDYCLXXL", url: "https://www.amazon.in/dp/B0HDYCLXXL", store: "Amazon.in" },
+        { img: "assets/book-ravir.jpg", alt: "Cover of Ravir Scott — Autobiography", t: "Ravir Scott — Autobiography", d: "Emerging from silence: one mind carrying two public identities. Kindle eBook and paperback.", id: "ASIN B0G9FWC3YW", url: "https://www.amazon.com/dp/B0G9FWC3YW", store: "Amazon" },
+        { img: "assets/book-data.jpg", alt: "Cover of Turning Data Into Intelligence", t: "Turning Data Into Intelligence", d: "How raw information becomes insight, and insight becomes intelligence.", id: "ASIN B0G8KJFTYV", url: "https://www.amazon.com/dp/B0G8KJFTYV", store: "Amazon" },
+        { img: "assets/book-nextjs.jpg", alt: "Cover of Blog with Next.js", t: "Blog with Next.js", d: "A practical guide to building and shipping a modern blog with Next.js.", id: "ASIN B0G6721J9S", url: "https://www.amazon.com/dp/B0G6721J9S", store: "Amazon" },
+        { img: "assets/book-the-ravir.jpg", alt: "Cover of The Ravir", t: "The Ravir", d: "A strategic Hindi analysis of Machiavelli's timeless guide to power, influence and control.", id: "GOOGLE PLAY", url: "https://play.google.com/store/books/details?id=FXUZN6BDN9R", store: "Google Play" }
+      ];
+
+      document.getElementById("bookgrid").innerHTML = books.map(function (b) {
+        return '<article class="book"><div class="cov"><img src="' + b.img + '" alt="' + b.alt + '" /></div>' +
+          '<h4>' + b.t + '</h4><p>' + b.d + '</p>' +
+          '<span class="asin">' + b.id + '</span>' +
+          '<a class="buy" href="' + b.url + '" target="_blank" rel="noopener">Buy on ' + b.store + ' ' + arrow + '</a></article>';
+      }).join("");
+
+      var platforms = [
+        { nm: "Spotify", ds: "Artist profile", url: SPOTIFY },
+        { nm: "Apple Music", ds: "Artist profile", url: APPLE },
+        { nm: "Amazon Music", ds: "Artist profile", url: AMAZON },
+        { nm: "JioSaavn", ds: "Artist profile", url: JIO },
+        { nm: "YouTube Music", ds: "@ravirscott", url: "https://youtube.com/@ravirscott" },
+        { nm: "Deezer", ds: "Artist profile", url: "https://www.deezer.com/en/artist/335437501" },
+        { nm: "Tidal", ds: "Artist profile", url: "https://tidal.com/artist/63530890" },
+        { nm: "Bandlink", ds: "Every link in one place", url: "https://band.link/ravirscott" },
+        { nm: "MusicBrainz", ds: "Open music database", url: "https://musicbrainz.org/artist/2849a682-24f4-4581-8c5f-d788cf19c05b" }
+      ];
+
+      document.getElementById("listengrid").innerHTML = platforms.map(function (p) {
+        return '<a class="plat-card" href="' + p.url + '" target="_blank" rel="noopener">' +
+          '<span><span class="nm">' + p.nm + '</span><br /><span class="ds">' + p.ds + '</span></span>' + arrow + '</a>';
+      }).join("");
+
+      var words = ["SANGAM", "KHAMOSHI", "INTEZZAR TERA", "FLUTES OF SANĀTANA", "LONE YET LOYAL", "RAVIR CRAVE", "VOID TESTAMENT", "KHAT KHAT", "RAVIR'S WIRE"];
+      var seq = words.map(function (w) { return "<span>" + w + "</span><b>◆</b>"; }).join("");
+      document.getElementById("marquee").innerHTML = seq + seq;
+    </script>
+  </body>
+</html>
