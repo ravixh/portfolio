@@ -19,13 +19,17 @@ jobs:
           if [ -f portfolio-site.zip ]; then
             unzip -o portfolio-site.zip -d .
             rm portfolio-site.zip
-          else
-            echo "portfolio-site.zip not found; nothing to do."
           fi
+          if [ -d portfolio-deploy ]; then
+            shopt -s dotglob nullglob
+            mv portfolio-deploy/* .
+            rmdir portfolio-deploy
+          fi
+          echo "Root contents:" && ls -la
       - name: Commit extracted files
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
-          git diff --cached --quiet && echo "Nothing to commit" || git commit -m "Extract portfolio site files [skip ci]"
+          git diff --cached --quiet && echo "Nothing to commit" || git commit -m "Move portfolio files to repo root [skip ci]"
           git push
